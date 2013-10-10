@@ -22,3 +22,17 @@
 document.body.on('click', function() {
 	alert('clicked');
 });
+
+// (function(){
+// // Store a reference to the original remove method.
+// var originalRemoveMethod = jQuery.fn.remove;
+ 
+// // Define overriding method.
+// jQuery.fn.remove = function(){
+// // Log the fact that we are calling our override.
+// console.log( "Override method" );
+ 
+// // Execute the original method.
+// originalRemoveMethod.apply( this, arguments );
+// }
+// })();
