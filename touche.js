@@ -1,4 +1,4 @@
-(function(d) {
+(function() {
 	var isTouch = (typeof isTouch !== 'undefined') ? isTouch : "ontouchstart" in document.documentElement;
 
 	Node.prototype.on = function(event, fn) {
