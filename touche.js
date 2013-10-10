@@ -17,24 +17,14 @@
 	};
 	
 	if(window.jQuery && Touche.touch){
-		// Store a reference to the original remove method.
 		var originalOnMethod = jQuery.fn.on;
 		
-		// Define overriding method.
 		jQuery.fn.on = function () {
-			
-			// Log the fact that we are calling our override.
 			var event = arguments[0];
 			arguments[0] = (event == 'click') ? 'touchend' : event;
-			
-			// Execute the original method.
 			originalOnMethod.apply(this, arguments);
 		}
 	}
 
 
 })(document, window.Touche = {});
-
-document.body.on('click', function() {
-	alert('clicked');
-});
