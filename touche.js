@@ -1,5 +1,5 @@
 (function(d, Touche) {
-	Touche.touch = (typeof Touche.touch !== 'undefined') ? Touche.touch : "ontouchstart" in d.documentElement;
+	Touche.touch = "ontouchstart" in d.documentElement;
 
 	Node.prototype.on = function(event, fn) {
 		if (Touche.touch) {
