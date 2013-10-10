@@ -1,8 +1,8 @@
-(function(d, Touche) {
-	Touche.touch = "ontouchstart" in d.documentElement;
+(function(d) {
+	var isTouch = (typeof isTouch !== 'undefined') ? isTouch : "ontouchstart" in document.documentElement;
 
 	Node.prototype.on = function(event, fn) {
-		if (Touche.touch) {
+		if (isTouch) {
 			event = (event == 'click') ? 'touchend' : event;
 		}
 		this.addEventListener(event, fn, false);
@@ -16,7 +16,7 @@
 		return this;
 	};
 	
-	if(window.jQuery && Touche.touch){
+	if(window.jQuery && isTouch){
 		var originalOnMethod = jQuery.fn.on;
 		
 		jQuery.fn.on = function () {
@@ -25,6 +25,4 @@
 			originalOnMethod.apply(this, arguments);
 		}
 	}
-
-
-})(document, window.Touche = {});
+})();
