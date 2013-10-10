@@ -15,6 +15,22 @@
 		});
 		return this;
 	};
+	
+	if(window.jQuery && Touche.touch){
+		// Store a reference to the original remove method.
+		var originalOnMethod = jQuery.fn.on;
+		
+		// Define overriding method.
+		jQuery.fn.on = function () {
+			
+			// Log the fact that we are calling our override.
+			var event = arguments[0];
+			arguments[0] = (event == 'click') ? 'touchend' : event;
+			
+			// Execute the original method.
+			originalOnMethod.apply(this, arguments);
+		}
+	}
 
 
 })(document, window.Touche = {});
@@ -22,17 +38,3 @@
 document.body.on('click', function() {
 	alert('clicked');
 });
-
-// (function(){
-// // Store a reference to the original remove method.
-// var originalRemoveMethod = jQuery.fn.remove;
- 
-// // Define overriding method.
-// jQuery.fn.remove = function(){
-// // Log the fact that we are calling our override.
-// console.log( "Override method" );
- 
-// // Execute the original method.
-// originalRemoveMethod.apply( this, arguments );
-// }
-// })();
