@@ -21,8 +21,8 @@
 		
 		jQuery.fn.on = function () {
 			var event = arguments[0];
-			arguments[0] = (event == 'click') ? 'touchend' : event;
+			arguments[0] = (event === 'click') ? 'touchend' : event;
 			originalOnMethod.apply(this, arguments);
-		}
+		};
 	}
 })();
