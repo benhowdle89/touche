@@ -22,7 +22,7 @@
 		jQuery.fn.on = function () {
 			var event = arguments[0];
 			arguments[0] = (event == 'click') ? 'touchend' : event;
-			return originalOnMethod.apply(this, arguments);
+			originalOnMethod.apply(this, arguments);
 		}
 	}
 })();
