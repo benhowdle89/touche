@@ -27,7 +27,7 @@
     img { vertical-align: middle; }
     a   { cursor: pointer; }
     em { font-style: italic; }
-    b { font-weight: 700; }
+    b, strong { font-weight: 700; }
     
 /*  =====================================
     Default
