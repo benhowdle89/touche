@@ -1,0 +1,160 @@
+/*  =====================================
+    CSS RESET
+    /*  ===================================== */
+
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+
+    .clearfix:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+    
+    article, hgroup, section, p {
+        display: block;
+    }
+    
+    img { vertical-align: middle; }
+    a   { cursor: pointer; }
+    em { font-style: italic; }
+    b { font-weight: 700; }
+    
+/*  =====================================
+    Default
+    /*  ===================================== */
+
+    * {
+        -webkit-font-smoothing: antialiased;
+        -webkit-background-clip: padding-box;
+        -moz-background-clip: padding-box;
+        background-clip: padding-box;
+    }
+
+    html, body {
+        width: 100%;
+        color: #e2e8eb;
+        font: normal 15px/1.5 Helvetica Neue, Helvetica, Arial;
+        background: #3c525f;
+    }
+    
+    body {
+        min-height: 530px;
+        position: relative;
+        z-index: 0;
+        padding-bottom: 80px;
+    }
+    
+    .wrap {
+        width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+    
+    a, a:visited {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    h2 {
+        font-size: 24px;
+        color: #fff;
+        margin: 24px 0;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 28px;
+        color: #fff;
+        float: left;
+    }
+    
+    h3 {
+        margin: 24px 0;
+        font-size: 22px;   
+    }
+
+    ul li {
+        margin: 12px 0 12px 40px;
+    }
+
+    .features {
+        text-align: left;
+        margin-bottom: 36px;
+    }
+
+    hr {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        border-top: 1px solid #30383c;
+        margin: 24px 0;
+        display: block;
+    }
+
+    .button {
+        color: #fff;
+        font-weight: bold;
+        font-size: 14px;
+        padding: 8px 12px;
+        margin: 12px 3px 18px 3px;
+        display: inline-block;
+        width: 80px;
+        background: #258dc8; /* Old browsers */
+        text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+        border: 1px solid rgba(0,0,0,0.5);
+        border-radius: 3px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.4), 
+        0 0 0 1px rgba(255,255,255,0.18) inset,
+        0 1px 0 0 rgba(255,255,255,0.3) inset;
+    }
+
+    .button:hover {
+        background: #329fdd; 
+    }
+
+    .centerChildren {
+    	text-align: center;
+    }
+
+    header {
+        text-align: center;
+        line-height: 80px;
+        width: 100%;
+        background-color: #30383c;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 24px; 
+    }
+
+    header span {
+        display: inline-block;
+        float: right;
+        position: relative;
+        top: 7px;
+    }
+
+    p {
+    	margin: 12px 0;
+    }
+
+    footer {
+    	margin-top: 48px;
+    }
+
+    .fRight {
+    	float: right;
+    }
+
+    .fLeft {
+    	float: left;
+    }

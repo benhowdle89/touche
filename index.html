@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="description" content="Touche.js - seamless touch event mapping for your click events" />
+
+  <meta charset=utf-8 />
+  <title>Touche.js - seamless touch event mapping for your click events</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+	<div class="wrap">
+		<h1><a href="/">Touche.js</a></h1>
+		<span>seamless touch event mapping for your click events</span>
+		<div class="clearfix"></div>
+	</div>
+</header>
+
+<div class="wrap">
+
+	<h2>Effortlessly re-map click events to touch events on touchscreen UIs</h2>
+
+	<hr />
+
+	<div class="centerChildren"><a class="button center" href="https://github.com/benhowdle89/touche">Download</a></div>
+
+	<h3>tl;dr</h3>
+
+	<ul>
+		<li>Takes your click events applied with JavaScript or jQuery and silently re-maps them to the "touchend" event for devices that support touch.</li>
+		<li>Removes the 300ms delay (after the user lifts their finger), applied by all touchscreens devices and immediately invokes your click handlers.</li>
+		<li>Works interchangeably with JavaScript click events or jQuery applied click events (through jQuery's .on() method).</li>
+	</ul>
+
+	<h3>Usage</h3>
+
+	<script src="https://gist.github.com/benhowdle89/a8bba569f887dc1c1742.js"></script>
+
+	<h3>Examples</h3>
+
+	<script src="https://gist.github.com/benhowdle89/8f0ed949b7b2dad3a770.js"></script>
+
+	<p>Congratulations, all of the click events above have been transformed into touchend events on touchscreen UIs</p>
+
+	<h3>Ok, show me under the hood...</h3>
+
+	<p>If you're using jQuery, then you don't have to do anything apart from include it the script on the page. If you're applying clicks with native JavaScript, then you do have to use the convenience method ".on()" for it to work.</p>
+
+	<p>This is an extract of the code from the plugin:</p>
+
+	<script src="https://gist.github.com/benhowdle89/4d70621b4246942ec703.js"></script>
+
+	<p>So, as you can see, we're checking whether the device is touch enabled, if it is, swap "click" events to "touchend" events. If it's not touch enabled, then at ease soldier, the code does nothing. So you're "click" events are still actioned on non-touch enabled devices.</p>
+
+	<div class="centerChildren"><a class="button center" href="https://github.com/benhowdle89/touche">Download</a></div>
+
+	
+</div>
+
+</div>
+<footer>
+	<hr />
+	<div class="wrap">
+		<p class="fLeft">Made by <a href="http://benhowdle.im">Ben Howdle</a></p>
+		<p class="fRight"><a class="btn" href="https://twitter.com/intent/tweet?text=Touche.js - seamless touch event mapping for your click events" target="_BLANK">Tweet &rarr;</a></p>
+	</div>
+</div>
+
+</body>
+</html>
