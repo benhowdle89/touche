@@ -13,5 +13,22 @@
 
 ### Usage
 
-`<!-- somewhere before the rest of your JavaScript code -->`
-`<script type="text/javascript" src="/path/to/touche.js"></script>`
+	<!-- somewhere before the rest of your JavaScript code -->
+	<script type="text/javascript" src="/path/to/touche.js"></script>
+	
+
+### Examples
+
+	// applying a click event to one element
+	 
+	document.querySelector('#myButton').on('click', handleClick);
+	 
+	// or to multiple at once
+	 
+	document.querySelectorAll('.myButtons').on('click', handleClicks);
+	 
+	// or with jQuery
+	 
+	$('.myButtons').on('click', handleClicks);
+
+
