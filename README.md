@@ -10,3 +10,8 @@
 		<li>Removes the 300ms delay (after the user lifts their finger), applied by all touchscreens devices and immediately invokes your click handlers.</li>
 		<li>Works interchangeably with JavaScript click events or jQuery applied click events (through jQuery's .on() method).</li>
 </ul>
+
+### Usage
+
+`<!-- somewhere before the rest of your JavaScript code -->`
+`<script type="text/javascript" src="/path/to/touche.js"></script>`
