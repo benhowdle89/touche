@@ -1,4 +1,4 @@
-# Touche.js
+Touche.js
 ======
 
 ## Effortlessly re-map click events to touch events on touchscreen UIs
