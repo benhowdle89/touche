@@ -3,7 +3,7 @@ Touche.js
 
 ## Effortlessly re-map click events to touch events on touchscreen UIs
 
-[Full docs](http://benhowdle.im/touche)
+[Full docs &rarr;](http://benhowdle.im/touche)
 
 <ul>
 		<li>Takes your click events applied with JavaScript or jQuery and silently re-maps them to the "touchend" event for devices that support touch.</li>
