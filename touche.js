@@ -1,5 +1,5 @@
 (function() {
-	var isTouch = "ontouchstart" in document.documentElement;
+	var isTouch = 'ontouchstart' in window || 'onmsgesturechange' in window;
 
 	Node.prototype.on = function(event, fn) {
 		if (isTouch) {
