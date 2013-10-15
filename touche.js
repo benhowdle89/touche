@@ -4,7 +4,7 @@
 	function Touche(nodes) {
 		
 		// doing this allows the developer to omit the `new` keyword from their calls to Touche
-		if(!this instanceof Touche) return new Touch(nodes);
+		if(!this instanceof Touche) return new Touche(nodes);
 		
 		if (!nodes) {
 			throw new Error('No DOM elements passed into Touche');
