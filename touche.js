@@ -15,11 +15,8 @@
 		}
 	}
 
-	// shortcut for the prototype
-	Touche.fn = Touche.prototype;
-
 	// our own event handler
-	Touche.fn.on = function(event, fn) {
+	Touche.prototype.on = function(event, fn) {
 
 		if (isTouch) {
 			event = (event == 'click') ? 'touchend' : event;
