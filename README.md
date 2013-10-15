@@ -8,7 +8,9 @@ Touche.js
 <ul>
 		<li>Takes your click events applied with jQuery and silently re-maps them to the "touchend" event for devices that support touch.</li>
 		<li>If you're not using jQuery, then Touche exposes a method "on" for your use like so:</li>
+</ul>
 	Touche(NodeList/Node).on('click', function(){ // handler })
+<ul>
 		<li>Removes the 300ms delay (after the user lifts their finger), applied by all touchscreens devices and immediately invokes your click handlers.</li>
 </ul>
 
