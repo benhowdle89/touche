@@ -2,17 +2,16 @@
 	var isTouch = 'ontouchstart' in window || 'onmsgesturechange' in window;
 
 	function Touche(nodes) {
+		
 		// doing this allows the developer to omit the `new` keyword from their calls to Touche
-		if (this instanceof Touche) {
-			if (!nodes) {
-				throw new Error('No DOM elements passed into Touche');
-			}
-			this.nodes = nodes;
-			return this;
-		} else {
-			// create a new instance of our Touche function
-			return new Touche(nodes);
+		if(!this instanceof Touche) return new Touch(nodes);
+		
+		if (!nodes) {
+			throw new Error('No DOM elements passed into Touche');
 		}
+		this.nodes = nodes;
+		return this;
+		
 	}
 
 	// our own event handler
