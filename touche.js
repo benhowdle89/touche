@@ -16,20 +16,20 @@
 
   // Our own event handler
   Touche.prototype.on = function(event, fn) {
-    var touchend, nodes = this.nodes, len = nodes.length;
+    var touchend, nodes = this.nodes, len = nodes.length, ev;
 
     if (isTouch && event === 'click') {
       touchend = true;
     }
 
-    function ev(el, event, fn) {
+    ev = function(el, event, fn) {
       var called, once = function() {
         if(!called && (called = true)) fn.apply(this, arguments);
       };
 
-      el.addEventListener(event, fn, false);
+      el.addEventListener(event, once, false);
 
-      if(touchend) el.addEventListener('touchend', fn, false);
+      if(touchend) el.addEventListener('touchend', once, false);
     }
 
     // NodeList or just a Node?
