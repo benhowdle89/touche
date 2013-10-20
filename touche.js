@@ -1,73 +1,58 @@
 (function() {
-	var isTouch = 'ontouchstart' in window || 'onmsgesturechange' in window;
+  var isTouch = 'ontouchstart' in window || 'onmsgesturechange' in window;
 
-	function Touche(nodes) {
+  function Touche(nodes) {
+    // Doing this allows the developer to omit the `new` keyword from their calls to Touche
+    if(!this instanceof Touche) return new Touche(nodes);
 
-		// doing this allows the developer to omit the `new` keyword from their calls to Touche
-		if(!(this instanceof Touche)) return new Touche(nodes);
+    if (!nodes) {
+      throw new Error('No DOM elements passed into Touche');
+    }
 
-		if (!nodes) {
-			throw new Error('No DOM elements passed into Touche');
-		}
-		this.nodes = nodes;
-		return this;
+    this.nodes = nodes;
 
-	}
+    return this;
+  }
 
-	// our own event handler
-	Touche.prototype.on = function(event, fn) {
+  // Our own event handler
+  Touche.prototype.on = function(event, fn) {
+    var touchend;
 
-		var touchend = false;
-		if (isTouch && event === 'click') {
-			touchend = true;
-		}
+    if (isTouch && event === 'click') {
+      touchend = true;
+    }
 
-		// abstraction for addEventListener
+    // Abstraction for addEventListener
+    function ev(el, event, fn) {
+      el.addEventListener(touchend ? 'touchend' : event, function() {
+        fn.apply(this, arguments);
+      }, false);
+    }
 
-		function ev(el, event, fn) {
-			var called = false;
-			// checks that an event is only handled once
-			function once() {
-				if (!called)
-					fn.apply(this, arguments);
+    var nodes = this.nodes, len = nodes.length;
 
-				called = true;
-			}
+    // NodeList or just a Node?
+    if (len) {
+      while (len--) ev(nodes[len], event, fn);
+    } else {
+      ev(nodes, event, fn);
+    }
 
-			el.addEventListener(event, once, false);
-			if (touchend) {
-				el.addEventListener('touchend', once, false);
-			}
-		}
+    return this;
+  };
 
-		var nodes = this.nodes,
-			len = nodes.length;
+  // Expose Touche
+  window.Touche = Touche;
 
-		// is it a NodeList or just a Node?
-		if (len) {
-			while (len--) {
-				ev(nodes[len], event, fn);
-			}
-		} else {
-			ev(nodes, event, fn);
-		}
-
-		return this;
-
-	};
-
-	// expose Touche
-	window.Touche = Touche;
-
-	// has the developer used jQuery?
-	if (window.jQuery && isTouch) {
-		var originalOnMethod = jQuery.fn.on;
-
-		// change event type and re-apply .on() method
-		jQuery.fn.on = function() {
-			var event = arguments[0];
-			arguments[0] = (event === 'click') ? 'touchend' : event;
-			originalOnMethod.apply(this, arguments);
-		};
-	}
+  // Has the developer used jQuery?
+  if (window.jQuery && isTouch) {
+    var originalOnMethod = jQuery.fn.on;
+    
+    // Change event type and re-apply .on() method
+    jQuery.fn.on = function() {
+      var event = arguments[0];
+      arguments[0] = event === 'click' ? 'touchend' : event;
+      originalOnMethod.apply(this, arguments);
+    };
+  }
 })();
