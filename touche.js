@@ -2,29 +2,42 @@
 	var isTouch = 'ontouchstart' in window || 'onmsgesturechange' in window;
 
 	function Touche(nodes) {
-		
+
 		// doing this allows the developer to omit the `new` keyword from their calls to Touche
 		if(!(this instanceof Touche)) return new Touche(nodes);
-		
+
 		if (!nodes) {
 			throw new Error('No DOM elements passed into Touche');
 		}
 		this.nodes = nodes;
 		return this;
-		
+
 	}
 
 	// our own event handler
 	Touche.prototype.on = function(event, fn) {
 
-		if (isTouch) {
-			event = (event == 'click') ? 'touchend' : event;
+		var touchend = false;
+		if (isTouch && event === 'click') {
+			touchend = true;
 		}
 
 		// abstraction for addEventListener
 
 		function ev(el, event, fn) {
-			el.addEventListener(event, fn, false);
+			var called = false;
+			// checks that an event is only handled once
+			function once() {
+				if (!called)
+					fn.apply(this, arguments);
+
+				called = true;
+			}
+
+			el.addEventListener(event, once, false);
+			if (touchend) {
+				el.addEventListener('touchend', once, false);
+			}
 		}
 
 		var nodes = this.nodes,
