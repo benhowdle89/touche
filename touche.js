@@ -22,11 +22,14 @@
       touchend = true;
     }
 
-    // Abstraction for addEventListener
     function ev(el, event, fn) {
-      el.addEventListener(touchend ? 'touchend' : event, function() {
-        fn.apply(this, arguments);
-      }, false);
+      var called, once = function() {
+        if(!called && (called = true)) fn.apply(this, arguments);
+      };
+
+      el.addEventListener(event, fn, false);
+
+      if(touchend) el.addEventListener('touchend', fn, false);
     }
 
     // NodeList or just a Node?
