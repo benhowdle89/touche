@@ -54,6 +54,7 @@
       var event = arguments[0];
       arguments[0] = event === 'click' ? 'touchend' : event;
       originalOnMethod.apply(this, arguments);
+      return this;
     };
   }
 })();
