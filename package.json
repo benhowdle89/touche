@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jantimon/touche.git"
+    "url": "https://github.com/benhowdle89/touche.git"
   },
   "scripts": {
     "test": "grunt --verbose"
