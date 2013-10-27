@@ -1,0 +1,19 @@
+{
+  "name": "touche",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "0.4.1",
+    "load-grunt-tasks": "~0.1.0",
+    "grunt-bytesize": "~0.1.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-uglify": "~0.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jantimon/touche.git"
+  },
+  "scripts": {
+    "test": "grunt --verbose"
+  }
+}
