@@ -1,7 +1,7 @@
 /* global jQuery:true */
-(function () {
+(function() {
   'use strict';
-  var isTouch = 'ontouchstart' in window || 'onmsgesturechange' in window;
+  var isTouch = 'ontouchstart' in window || 'msmaxtouchpoints' in window.navigator;
 
   function Touche(nodes) {
     // Doing this allows the developer to omit the `new` keyword from their calls to Touche
@@ -19,19 +19,21 @@
   }
 
   // Our own event handler
-  Touche.prototype.on = function (event, fn) {
-    var touchend, nodes = this.nodes, len = nodes.length, ev;
+  Touche.prototype.on = function(event, fn) {
+    var touchend, nodes = this.nodes,
+      len = nodes.length,
+      ev;
 
     if (isTouch && event === 'click') {
       touchend = true;
     }
 
-    ev = function (el, event, fn) {
-      var called, once = function () {
-        if (!called && (called = true)) {
-          fn.apply(this, arguments);
-        }
-      };
+    ev = function(el, event, fn) {
+      var called, once = function() {
+          if (!called && (called = true)) {
+            fn.apply(this, arguments);
+          }
+        };
 
       el.addEventListener(event, once, false);
 
@@ -60,7 +62,7 @@
     var originalOnMethod = jQuery.fn.on;
 
     // Change event type and re-apply .on() method
-    jQuery.fn.on = function () {
+    jQuery.fn.on = function() {
       var event = arguments[0];
       arguments[0] = event === 'click' ? 'touchend' : event;
       originalOnMethod.apply(this, arguments);
