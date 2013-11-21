@@ -64,7 +64,10 @@
     // Change event type and re-apply .on() method
     jQuery.fn.on = function() {
       var event = arguments[0];
-      arguments[0] = event === 'click' ? 'touchend' : event;
+      
+      if( event.slice(0, 4) == 'click' )
+        arguments[0] = event.replace('click', 'touchend');
+        
       originalOnMethod.apply(this, arguments);
       return this;
     };
