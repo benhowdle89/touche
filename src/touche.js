@@ -65,7 +65,7 @@
     jQuery.fn.on = function() {
       var event = arguments[0];
       
-      if( event.slice(0, 4) == 'click' )
+      if( event.slice(0, 5) == 'click' )
         arguments[0] = event.replace('click', 'touchend');
         
       originalOnMethod.apply(this, arguments);
