@@ -71,18 +71,22 @@
 
     // Change event type and re-apply .on() method
     jQuery.fn.on = function() {
-      // arguments[0] is the event name
-      arguments[0] = replaceEventName(arguments[0]);
-        
+      // arguments[0] is the event name if provided
+      if(typeof arguments[0] === "string"){
+        arguments[0] = replaceEventName(arguments[0]);
+      }
+
       originalOnMethod.apply(this, arguments);
       return this;
     };
 
     // Change event type and re-apply .off() method
     jQuery.fn.off = function() {
-      // arguments[0] is the event name
-      arguments[0] = replaceEventName(arguments[0]);
-        
+      // arguments[0] is the event name if provided
+      if(typeof arguments[0] === "string"){
+        arguments[0] = replaceEventName(arguments[0]);
+      }
+
       originalOffMethod.apply(this, arguments);
       return this;
     };
