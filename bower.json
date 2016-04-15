@@ -1,0 +1,18 @@
+{
+  "name": "touche",
+  "homepage": "https://github.com/benhowdle89/touche",
+  "_release": "7c5631a1a6",
+  "main": "src/touche.js",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~1.10.0"
+  },
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7c5631a1a660d1dd1f2a417459b749c9525d3aa6"
+  },
+  "_source": "https://github.com/benhowdle89/touche.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/benhowdle89/touche.git"
+}
