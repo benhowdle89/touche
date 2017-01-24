@@ -5,7 +5,7 @@
   "main": "src/touche.js",
   "license": "MIT",
   "dependencies": {
-    "jquery": "~1.10.0"
+    "jquery": ">=1.10.0"
   },
   "_resolution": {
     "type": "branch",
